@@ -3,8 +3,6 @@
 Created on Sat Jun 29 13:44:31 2019
 
 @author: Alexander
-
-Link to instructions: https://realpython.com/python-web-scraping-practical-introduction/
 """
 from requests import get
 from requests.exceptions import RequestException
@@ -48,8 +46,7 @@ def log_error(e):
     """
     print(e)
 
-
-raw_html = simple_get('http://www.fabpedigree.com/james/mathmen.htm')
+pattern = re.compile(r',');
+raw_html = simple_get('http://registration.baa.org/2019/cf/Public/iframe_TopFinishers.htm')
 html  = BeautifulSoup(raw_html, 'html.parser')
-for i, li in enumerate(html.select('li')):
-        print(i, li.text)
+print(html.find_all("td", text=pattern))
